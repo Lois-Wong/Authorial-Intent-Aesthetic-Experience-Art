@@ -1,0 +1,360 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+# Final Paper
+## Completed By Lois Wong
+
+## Initial setup: Installing and loading necessary packages and reading in data 
+
+Article https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0179145
+
+The data can be found at https://osf.io/z7xkw/. There are ten columns/variables in the data frame: 
+- 'subject' is a unique identifier for every participant 
+- 'excerpt' is a condition label for each excerpt's valence (positive, negative, or neutral)
+- 'stimID is a unique identifier for every stimulus (poetic or music excerpt) 
+- 'enjoy' is the enjoyment rating for the stimulus in the row
+- 'match' is the match rating for the stimulus in the row
+- 'happy' is the happiness rating for the stimulus in the row
+- 'moving' is the movingness rating for the stimulus in the row
+- 'sad' is the sadness rating for the stimulus in the row
+- 'description' is the intention description (positive, negative, neutral) for the stimulus in the row
+- 'stimType' is the type of stimulus (music or poem) for the stimulus in the row
+- Additionally, note that values of 99 are used as a placeholder for data for one of the positive stimulus excerpts that was not recorded due to a programming error.
+
+Paper Summary
+
+Ambiguity, defined as "the capacity to sustain multiple interpretations" (Margulis et al., 2017) is a property inherent of art. This paper, titled "Expressive intent, ambiguity, and aesthetic experiences of music and poetry", examines the role of ambiguity in the aesthetic processing of poetry and music, specifically how expressive disambiguation of the composer or author's emotional or communicative intent in writing the piece affects an audience's enjoyment and perception of that piece. To see whether this information influenced their perception of the excerpts, participants were exposed to 30 second excerpts of music and poetry that were previously categorized as expressively ambiguous (works that can support multiple interpretations, e.g. can be understood as being either positively or negatively valenced). 'Expressive disambiguation' surfaces as either neutral, positively valenced, or negatively valenced information about the author or composer's intentions in their composition of each excerpt, which is presented to the participants prior to hearing the excerpts.  
+
+Descriptions of authorial intention served as expressive disambiguation 
+- An example of a positive intention is "*The author/composer wrote this poem to express his passion and devotion for his love*)" (Margulis et al., 2017)
+- An example of ambiguous intention is "*The author/composer wrote this piece to express mourning over the death of a family member*)" (Margulis et al., 2017)
+- An example of a negative intention is "*The author/composer wrote this poem to experiment with different writing techniques"* (Margulis et al., 2017)
+
+Research Questions: The three aims of this paper are to find out 
+
+1. Whether extrinsic information or expressive disambiguation of the artist's intent affects aesthetic appreciation differently for musical and poetic excerpts. This is relevant because poetry, with its use of language and its carrying of semantic meaning, is considerably less vague than music. 
+    - If this information affects the processing of music and poetry differently, one would have to further investigate the semantic aspects of poetry and compare it with that of music 
+2. Whether verbal/extrinsic information about an artist’s expressive intent can influence the way a piece of music or poetry is processed affectively. Specifically, whether positively valenced information leads participants to perceive excerpts as happier, and negatively valenced information leads participants to perceive excerpts as sadder, and if the same information impacts the evaluation of an excerpt's enjoyability. 
+    - If positively and negatively valenced music is leads participants to perceive excerpts as happier and sadder, respectively, it would indicate that verbal information provided before aesthetic experience can be integrated into the emotional processing component of art. Furthermore, if being given this information affects the rating of an excerpt's enjoyability or movingness, "it would suggest there existing a role for cultural messaging beyind the intrinsic content of a work of art" (Margulis et al., 2017)
+3. Whether people prefer and are more moved by experiencing music and poetry with the ambiguity intact. This is consulted by analyzing the effects of neutral intent information. The authors control for the content of the excerpts by changing the pairings of descriptions and excerpts.
+
+The paper further aims to identify the role of an audience's empathy with a perceived human artist in the generation of aesthetic experience of music and poetry, and the possible factor of empathy is traced in comparing the 'match' scores, i.e. positively valenced information + happy excerpts.
+
+
+Experimental Conditions, Participant and Stimuli Information
+
+The music excerpts were all instrumental (no lyrics) reported by the authors to straightforwardly convey either positive or negative affect. Four positive, four negative, and 18 ambiguous excerpts were used. 
+- Positive excerpts, for example, included pieces in a major key, faster tempos
+- Negative excerpts included pieces in a minor key and slower tempos
+- Ambiguous excerpts mixed these structural cues
+
+The poetic excerpts included both classic and contemporary poets and eited to last approximately 30 seconds. These were read and recorded by a professional actor who spoke with a neutral, affectively uninflected tone. Earlier in the study, another group of participants were asked to rate positivity, negativity, and ambiguity, familiarity, and enjoyment for each, and from the excerpts reported as most unfamiliar, the 4 most positive, 4 most negative, and 18 most ambiguous excerpts were selected
+
+After hearing each excerpt, participants rated on a scale of 1-7
+- How happy each excerpt seemed
+- How sad each excerpt seemed
+- How much they enjoyed the excerpt
+- How moving the excerpt seemed
+- How well the excerpt matched the composer or author's intention
+
+In the experiment, the authors paired ambiguous excerpts with positive, negative, or neutral intent descriptions, while only pairing positive excerpts with positive or neutral intent descriptions, and negative excerpts only with negative or neutral descriptions so as to enhance believability of the pairings. The same descriptions were used for both poem and music excerpts, and no participant received the same description twice. 1/3 of the excerpts were paired with negatively valenced intent information, 1/3 was paired with positively valenced information, and 1/3 paired with neutrally valenced information. Each participant was exposed to positive, negative, and neutral music and poetic excerpts paired with positive, negative, and neutral descriptions, and participants were randomly assigned to one of the six lists of stimulus pairings, and for the ambiguous excerpts. The design was a 2 x 3 (stimulus type: music vs poetry) × (intention description: positive, negative, neutral) repeated-measures study.
+
+Model Selection
+
+The authors used linear mixed modelling of dependent measures, and participants and stimuli were chosen as the random-effects variables. Models were fitted "with maximal random effects structure and random slopes for each of the fixed factors within each participant and stimulus. If the maximal model failed to converge, the random-effects structure was simplified incrementally by removing one random slope at a time, the one that explained the least variance in the model that did not converge." (Margulis et al., 2017) 
+
+Because the authors used a repeated measures design in their experiment, the independence assumption would not be met if they did not take into account the dependencies within the data collected. It follows that the authors chose to use linear mixed modelling, for this would allow them to account for the multiple observations taken from a single participant as well as the multiple times the same poetic or musical excerpt was used. Because the observations recorded do not vary independently of each other, the aggregation of participants and stimulus type will better account for the patterns within the collected data. 
+
+Every plot in the paper displays the mean ratings of a column within the data frame (enjoyment, happiness, sadness, and movingness ratings) as a function of intention description and stimulus type. The authors' decision to use only the mean ratings to compare the six possible combinations of intention description and stimulus type is not the most informative of the underlying distribution of ratings. Additionally, their inclusion of the standard error of the group means as the plot's error bars instead of the standard deviation or confidence interval was of particular interest to me. A possible factor for including the SE can be found in the authors' motivations for this study. They commented on the novelty of the domain of their research questions in that not much inquiry has been made into notions that aesthetic experience and perception of art could be dependent upon the concept of empathy [with a human artist]. Noting that every research question is an aim to discover whether something happens/exists or not, it follows that what the authors are investigating is very much just the beginning of a series of possible trajectories for more specific questions. As such, the authors' decision to report the SE appears indicative of their desire to make an inference about the population. The SD only indicates how variable each individual in their sample data is from their mean, but in their desire to make a broad inference about how humans perceive and experience art, the SE seems more relevant as it measures the uncertainty of their calculated means encompassing the true population means. In what seems to be an initial glance into the nature of perception in the arts, the authors are testing general claims and inquiries which are important for laying the groundwork of future studies within the delicate domain of something very fundamental, abstract, and human.  
+
+Loading in Packages 
+```{r setup, include=FALSE}
+library(tidyverse) 
+library(ggplot2)
+library(lme4)
+library(lmerTest)
+library(dplyr)
+library(ggeffects)
+library(broom)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Data Setup
+```{r} 
+df <- read_csv('Quant Lecture and Section Data/df.csv')
+
+#I am filtering out the rows containing the value 99 because the authors said these values are a placeholder for data that was not collected in the following columns due to a programming error
+
+df <- subset(df, enjoy != 99 & match != 99 & happy != 99 & moving != 99 & sad != 99)
+```
+
+The first group of calculations the authors made were to make sure that participants were on the same page as the authors on the differentiation of the stimuli/excerpts. They confirmed this shared agreement by comparing happiness and sadness ratings of previously defined positive vs negative excerpts. This checked out in their reported mean and SE values, which are reported below. 
+
+The authors reported the means and standard errors for positive vs negative excerpts for happiness ratings which are stated below: 
+- Positive excerpts (M = 5.37, SE = 0.13)
+- Negative excerpts (M = 1.79, SE = 0.11), t(17.9) = 15.64, p < .001. 
+
+For sadness ratings, the authors reported that they negative excerpts were rated sadder than positive excerpts, and that these effects did not interact significantly with excerpt type: 
+- Negative excerpts (M = 5.04, SE = 0.12)
+- Positive excerpts (M = 1.73, SE = 0.10), t(18.2) = 16.5, p < .001
+
+Additionally, the authors noted that music was overall rated happier than poetry, 
+- Poetry (M = 3.11, SE = 0.11), t(15.6) = 3.24, p = .005
+- Music (M = 3.87, SE = 0.12). 
+
+And music was was also rated less sad than poetry.
+- Music  (M = 3.21, SE = 0.11)
+- Poetry  (M = 3.75, SE = 0.11), t(17.6) = 1.60, p = .13
+
+The authors concluded that happiness ratings were higher for positive than negative excerpts, sadness ratings were higher for negative than positive excerpts, and that these effects did not have significant interaction with the type of the excerpt (music vs poetry).
+
+When I calculated these values using the data provided, my results showed a similar trend in that mean happiness ratings were higher for positive than negative excerpts, and mean sadness ratings  were higher for negative than positive excerpts. I also saw that happiness ratings in music was higher than happiness ratings for poetry, and sadness ratings for music was lower than sadness ratings for poetry. My mean values were a few decimal places off from the authors', and a trend I identified is that the dichotomy between the two groups being compared in every area of measurement is slightly more pronounced. For example, my mean happiness rating for positive excerpts is higher, and my mean happiness rating for negative excerpts is lower than the authors' reported values. Additionally, my SE values throughout were consistently and considerably lower than the reported SE values. This is likely the result of some unreported pre-processing of data on the authors' part that potentially included the removal of certain observations and/or outliers from the data they published alongside the paper. 
+
+Mean and SE tables of happy and sad ratings for positive and negative excerpts
+```{r}
+#selecting the data for only positive and negative excerpts 
+excerpt_pn <- df %>% filter(df$excerpt== c('positive', 'negative'))
+
+#summary of happiness ratings (mean and SE) for positive and negative excerpts 
+as_tibble(excerpt_pn %>% group_by(excerpt) %>% summarize(happy_mean = mean(happy), happy_se = sd(happy)/sqrt(n())))
+
+#t test
+t.test(happy ~ excerpt, data=excerpt_pn)
+
+#summary of sadness ratings (mean and SE) for positive and negative excerpts 
+excerpt_pn %>% group_by(excerpt) %>% summarize(sad_mean = mean(sad), sad_se = sd(sad)/sqrt(n()))
+
+t.test(sad ~ excerpt, data=excerpt_pn)
+
+#summary of happiness ratings for music vs poetry: Mean and SE 
+df %>% group_by(stimType) %>% summarize(happy_mean = mean(happy), happy_se = sd(happy)/sqrt(n()))
+
+t.test(happy ~ stimType, data=excerpt_pn)
+
+#summary of sadness ratings for music vs poetry: Mean and SE 
+df %>% group_by(stimType) %>% summarize(sad_mean = mean(sad), sad_se = sd(sad)/sqrt(n())) 
+
+t.test(sad ~ stimType, data=excerpt_pn)
+
+lm()
+df
+```
+The authors then calculated intent description match ratings for positive and negative excerpts. The match ratings for the combination of positive excerpts and positive intentions were compared to the match ratings for ambiguous excerpts and 'any kind of intention', and the match ratings for negative excerpts and negative intentions were compared to the match scores for ambiguous excerpts and any kind of intention. They concluded that "the positive and negative excerpts respectively matched positive and negative intention descriptions better than ambiguous excepts matched any kind of intention description" because positive excerpts and positive intentions "were much higher than for ambiguous excerpts and any kind of intention description" (Margulis et al., 2017). 
+
+- Match rating between positive excerpts and positive intentions (M = 5.21, SE = 0.14)
+- Match rating between negative excerpts and negative intentions (M = 5.46, SE = 0.15)
+- Match rating for ambiguous excerpts and any kind of intention description(M = 3.95, SE = 0.09)
+
+
+Additionally, the authors reported that intention description significantly interacted with excerpt types (poetry vs music) in predicting match scores F(2, 83.7) = 3.37, p = .04
+
+Intent Description and Match ratings for positive, negative, and ambiguous excerpts
+```{r}
+#summary of match ratings for the 8 possible combinations of excerpts (positive, negative, ambiguous) and descriptions (neutral, positive, negative)
+
+df %>% group_by(excerpt, description) %>% summarize(match_mean = mean(match), match_se = sd(match)/sqrt(n()), match_mean = mean(match), match_se = sd(match)/sqrt(n()))
+
+ambiguous <- df %>% filter(df$excerpt == 'ambiguous')
+
+#match rating for ambiguous excerpts and any description
+ambiguous %>% summarize(match_mean = mean(match), match_se = sd(match)/sqrt(n()), match_mean = mean(match), match_se = sd(match)/sqrt(n())) 
+
+#model predicting match scores from excerpt type and intention description
+match_lm <- lm(match ~ stimType + description, data=df)
+summary(match_lm)
+
+#new model predicting match scores from the interaction of excerpt type and intention description
+match_lm1 <- lm(match ~ stimType * description, data=df)
+summary(match_lm1)
+
+#anova to assess the significance of the additional interaction as a predictor that shows a significant interaction between excerpt type and match effects 
+anova(match_lm, match_lm1)
+```
+
+Finally, the authors observed a significant difference in how well the intention descriptions were perceived to match the ambiguous excerpts, reporting higher match ratings for positive intention descriptions than negative and neutral intention descriptions. They concluded that the difference in match ratings across intention descriptions to be significant F(2, 176.5) = 3.40, p = .04
+
+- Match ratings for positive intention descriptions (M = 4.05, SE = 0.10)
+- Match ratings for negative intention descriptions (M = 3.94, SE = 0.10)
+- Match ratings for neutral intention descriptions (M = 3.89, SE = 0.10)
+
+Match scores for music were higher than match scores for poetry, but the authors reported that this difference was not significant. They noted, however, that the interaction between intention description type and excerpt type was very strong, "reflecting that for music, positive and neutral intention descriptions are better matched than negative descriptions, but the opposite pattern emerges for poetry". This interaction is what motivated the authors to consider that the possibility that "the perceived match between intention description and stimulus mediates aesthetic experience". They further concluded that since there is no significant difference between music and poetry on overall match ratings, this confirms "that the intent descriptions were equally well-suited to the music and poetry samples." (Margulis et al., 2017)
+
+- Match ratings for music M = 4.10, SE = 0.12)
+- Match ratings for poetry (M = 3.82, SE = 0.12), F(1, 44.0) = 4.03, p = .051
+- Interaction between intention description and excerpt type F(2, 125.0) = 132.39, p < .001
+
+```{r}
+#match ratings for ambiguous excerpts and the three intention descriptions
+ambiguous %>% group_by(excerpt, description) %>% summarize(match_mean = mean(match), match_se = sd(match)/sqrt(n()))
+
+#testing the significance of different intention descriptions matching the ambiguous excerpts
+match.lm <- lm(match ~ description, data=ambiguous)
+summary(match.lm)
+
+#match ratings for music vs poetry
+ambiguous %>% group_by(excerpt, stimType) %>% summarize(match_mean = mean(match), match_se = sd(match)/sqrt(n()))
+
+
+#match ratings for ambiguous excerpts and positive descriptions grouped by stimType
+ambiguous %>% filter(ambiguous$description == 'positive') %>% group_by(stimType) %>% summarize(positive_match_mean = mean(match), positive_match_se = sd(match)/sqrt(n()))
+
+#match ratings for ambiguous excerpts and negative descriptions grouped by stimType 
+ambiguous %>% filter(ambiguous$description == 'negative') %>% group_by(stimType) %>% summarize(negative_match_mean = mean(match),negative_match_se = sd(match)/sqrt(n()))
+```
+
+Plot Replication 
+
+There are four visualizations included within the paper and a summary table of p-values and Standard Errors. The plots show the means of the ambiguous data grouped by happiness, sadness, enjoyment, and match ratings, and the standard error bars are included within the plot. The authors only used ratings for ambiguous excerpts, so I first filtered df to only include those ratings, which were then "examined as a function of intention description and excerpt type, as well as their interaction." The authors reported choosing the participants and stimuli as the random effects, first fitting models with maximal random-effects structure "that included random slopes for each of the fixed factors within each participant and stimulus. If the maximal model failed to converge, the random-effects structure was simplified incrementally by removing one random slope at a time, the one that explained the least variance in the model that did not converge." (Margulis et al., 2017)
+
+Because authors did not specify the random slopes used in their final model, I had to retrace their steps, which I did by fitting a maximal model and incrementally removing slopes until the model converged. I used the interaction of 'description' * 'stimType' as the fixed effects, and used that to predict the means of the following ratings: 'enjoy', 'happy', 'moving', and 'sad'. I grouped by subject (each unique participant) and stimID (each unique excerpt) and included random slopes for each fixed effect within each participant and stimulus, gradually reducing the complexity of the random effects structure. 
+
+Testing different random slope structures
+```{r}
+ambiguous <- df %>% filter(df$excerpt == 'ambiguous')
+
+#maximal random slope model structure; this model failed to converge
+enjoy.lm0 <- lmer(enjoy ~ description * stimType + (1+description+stimType|subject) + (1+description+stimType|stimID), data=ambiguous)
+summary(enjoy.lm0)
+
+#removing description as the random slope in stimID because it exhibits the least variance. This model failed to converge 
+enjoy.lm1 <- lmer(enjoy ~ description * stimType + (1+description+stimType|subject) + (1+stimType|stimID), data=ambiguous)
+summary(enjoy.lm1)
+
+#removing stimType as the random slope within stimID because it exhibits the least variance. This model converged 
+enjoy.lm2 <- lmer(enjoy ~ description * stimType + (1+description+stimType|subject) + (1|stimID), data=ambiguous)
+summary(enjoy.lm2)
+
+```
+
+The authors reported no significant effect of intention description type on enjoyment, F(2, 66.9) = 1.93, p = .15, but a clear interaction of intention and excerpt type, F(2, 54.9) = 15.51, p < .001. They further observed that negative intentions increased enjoyment of poetry relative to the neutral descriptions and decreased enjoyment of music relative to the neutral condition. There was also a large enjoyment advantage for music (M = 4.08, SE = 0.13) over poetry (M = 3.31, SE = 0.14), t(49.8) = 5.08, p < .001. (Margulis et al., 2017)
+
+This figure shows that music is consistently rated with higher enjoyment scores than poetry across all three intention descriptions. Additionally, music seems to be the most enjoyable when paired with positive descriptions, and the least enjoyable when paired with negative descriptions. This is not the case for poetry, which seems to be the most enjoyable when paired with negative descriptions, and the least enjoyable when paired with neutral descriptions.  
+
+Figure 1: Dot plot with error bars showing the standard error of mean enjoyment ratings as a function of intention description and stimulus type (music or poem)
+```{r}
+ambiguous <- df %>% filter(df$excerpt == 'ambiguous')
+
+#the effect of intention description type on enjoyment
+enjoy.lm0 <- lmer(enjoy ~ description + (1+description+stimType|subject) + (1|stimID), data=ambiguous)
+
+summary(enjoy.lm0)
+
+#the effect of the interaction of intention and excerpt type on enjoyment
+enjoy.lm <- lmer(enjoy ~ description * stimType + (1+description+stimType|subject) + (1|stimID), data=ambiguous)
+summary(enjoy.lm)
+
+#comparing the two models 
+anova(enjoy.lm0, enjoy.lm)
+
+enjoy_preds <- as_tibble(ggpredict(enjoy.lm, terms = c('description', 'stimType')))
+enjoy_preds
+
+ggplot(enjoy_preds, aes(x=x, y=predicted, fill=group)) +
+  geom_errorbar(
+    aes(ymin = predicted-std.error, ymax = predicted+std.error, color = group), 
+    position = position_dodge(0), width = 0.2
+    ) +
+  geom_point(aes(color = group), position = position_dodge(0)) +
+  scale_color_manual(values = c('#702963', '#E9967A')) +
+  labs(title='Enjoyment Rating', x='Description', y='Enjoyment Ratings')
+```
+
+The authors reported a "clear, predictable effect of intentions, F(2, 154.0) = 199.46, p < .001, such that positive intentions led to an increase in happiness ratings relative to neutral descriptions, and negative intentions led to a decrease in happiness ratings relative to neutral descriptions. Music (M = 4.26, SE = 0.16) elicited higher happiness ratings than poetry overall (M = 2.75, SE = 0.16), t(43.2) = 6.47, p < .001. The two factors did not interact significantly (F < 1)." (Margulis et al., 2017)
+
+This figure shows that music is consistently rated happier than poetry in all three description types. Additionally, the ambiguous excerpts with positive descriptions score highest in happiness, followed by those paired with neutral descriptions and finally those paired with negative descriptions. This shows a correlation between happiness ratings and intention description types. 
+
+Figure 2: Dot plot with SE bars showing mean happiness ratings as a function of intention description and stimulus type 
+```{r}
+happy.lm <- lmer(happy ~ description * stimType + (1+description+stimType|subject) + (1|stimID), data=ambiguous)
+
+summary(happy.lm)
+
+happy_preds <- as_tibble(ggpredict(happy.lm, terms = c('description', 'stimType')))
+happy_preds
+
+ggplot(happy_preds, aes(x=x, y=predicted, fill=group)) +
+  geom_errorbar(
+    aes(ymin = predicted-std.error, ymax = predicted+std.error, color = group), 
+    position = position_dodge(0), width = 0.2
+    ) +
+  geom_point(aes(color = group), position = position_dodge(0)) +
+  scale_color_manual(values = c('#702963', '#E9967A')) +
+  labs(title='Hapiness Ratings', x='Description', y='Happiness Rating')
+```
+
+According to the authors, sadness ratings are similar to those of happiness, with there being "a clear, predictable effect of intentions, F(2, 71.4) = 106.19, p < .001, such that negative intentions led to an increase in sadness ratings relative to neutral descriptions, and positive intentions led to a decrease in sadness ratings relative to neutral descriptions. Poetry (M = 3.72, SE = 0.15) elicited higher sadness ratings than music overall (M = 2.50, SE = 0.15), t(38.5) = 5.31, p < .001. The two factors did not interact significantly (F ≈ 1.5)." (Margulis et al., 2017)
+
+This figure shows that poetry is consistently rated sadder than music across all three intention descriptions. Additionally, for both poetry and music, excerpts paired with negative descriptions scored higher than excerpts paired with neutral descriptions which also scored higher than excerpts paired with positive descriptions. This shows a correlation between sadness ratings and intention description types, and supports the possibility that empathy with a perceived human artist does affect one's perception of music and poetry. 
+
+Figure 3: Dot plot with SE bars showing mean sadness ratings as a function of intention description and stimulus type 
+```{r}
+sad <- lmer(sad ~ description * stimType + (1+description+stimType|subject) + (1|stimID), data=ambiguous)
+
+summary(sad)
+
+sad_preds <- as_tibble(ggpredict(sad, terms = c('description', 'stimType')))
+sad_preds
+
+ggplot(sad_preds, aes(x=x, y=predicted, fill=group)) +
+  geom_errorbar(
+    aes(ymin = predicted-std.error, ymax = predicted+std.error, color = group), 
+    position = position_dodge(0), width = 0.2
+    ) +
+  geom_point(aes(color = group), position = position_dodge(0)) +
+  scale_color_manual(values = c('#27285C', '#D22B2B')) +
+  labs(title='Sadness Ratings', x='description', y='sadness rating')
+```
+
+
+Lastly, Movingness ratings "showed a distinct difference between the way music and poetry were experienced depending on the intention description's valence (see Fig 4). There was a significant effect of intention description type on movingness, F(2, 57.5) = 16.82, p < .001; both negative (M = 3.73, SE = 0.11) and positive (M = 3.80, SE = 0.11) intentions led to higher movingness ratings than did neutral descriptions (M = 3.52, SE = 0.11). This pattern is qualified by an interaction of intention and excerpt type, F(2, 54.4) = 12.15, p < .001; this interaction reflects that positive intentions increased movingness for music not for poetry, and negative intentions increased movingness for poetry but not for music. Music (M = 3.89, SE = 0.13) was rated as more moving than poetry overall (M = 3.48, SE = 0.13), t(50.2) = 2.48, p = .02." (Margulis et al., 2017)
+
+This figure shows that music seems to be overall more moving than poetry. Music is also most moving when paired with positive descriptions, which is not the case for poetry, which is the most moving when paired with negative descriptions. 
+
+Figure 4: Dot plot with SE bars showing mean movingness ratings as a function of intention description and stimulus type
+```{r}
+moving <- lmer(moving ~ description * stimType + (1+description+stimType|subject) + (1|stimID), data=ambiguous)
+
+summary(moving)
+
+moving_preds <- as_tibble(ggpredict(moving, terms = c('description', 'stimType')))
+moving_preds
+
+ggplot(moving_preds, aes(x=x, y=predicted, fill=group)) +
+  geom_errorbar(
+    aes(ymin = predicted-std.error, ymax = predicted+std.error, color = group), 
+    position = position_dodge(0), width = 0.2
+    ) +
+  geom_point(aes(color = group), position = position_dodge(0)) +
+  scale_color_manual(values = c('#27285C', '#D22B2B')) +
+  labs(title='Movingness Ratings', x='description', y='moving rating')
+```
+
+
+The authors then tested whether "the interaction of intention description with excerpt type on enjoyment was mediated by the perceived match between ambiguous excerpts and the intention description they were paired with." by repeating the analyses reported above for enjoyment with match as an additional predictor in the regression model. (Margulis et al., 2017)
+
+They decomposed the interaction of intention description with excerpt type for enjoyment in Table 1, which "displays the unmediated effects of positive and negative intention descriptions relative to neutral descriptions separately for music and poetry." noting that "relative to neutral intentions descriptions, negative descriptions reduced enjoyment for music but increased enjoyment for poetry", and controlling for match, the intention description by excerpt interactions for enjoyment is no longer significant, F(2, 183.5) = 1.82, p = .16. (Margulis et al., 2017)
+
+They concluded that ambiguous music was significantly less enjoyable (M = 3.88, SE = 0.13) when paired with negative intention descriptions than when paired with neutral intention descriptions (M = 4.11, SE = 0.14), a difference of -0.232 (SE = 0.077), t(90.7) = -3.03, p = .003. However, when controlling for match between description and excerpt, the same comparison was negligible (0.004, SE = 0.068), suggesting complete mediation, supported by a 95% CI for the indirect effect on enjoyment of negative descriptions (relative to neutral descriptions) via match of [-0.308, -0.164]. Similarly, ambiguous poetry when paired with negative intention descriptions was significantly more enjoyable (M = 3.46, SE = 0.141) than when paired with a neutral intention descriptions (M = 3.18, SE = 0.150), a difference of 0.273 (SE = 0.080), t(98.2) = 3.44, p < .001; when controlling for match, the same comparison was negligible (0.002, SE = 0.073), again suggesting complete mediation, supported by a 95% CI for the indirect effect on enjoyment of negative descriptions (relative to neutral descriptions) via match of [0.213, 0.331].(Margulis et al., 2017)
+
+Table 1: Summary Statistics of p values and standard errors of the effects of intention descriptions relative to neutral descriptions on enjoyment ratings for music and poetry
+```{r}
+ambiguous 
+
+enjoy_lm_new <- lmer(enjoy ~ description * stimType + (1+description+stimType|subject) + (1|stimID), data=ambiguous)
+
+enjoy_lm_match <- lmer(enjoy ~ description * stimType + match + (1+description+stimType|subject) + (1|stimID), data=ambiguous)
+
+summary(enjoy_lm_new)
+
+anova(enjoy_lm_new, enjoy_lm_match)
+```
+Conclusion
+
+My replication of this paper returned the same patterns and trends as the authors' results, albeit with slight numeric differences. From this study, it seems to be the case that verbal information/intent disambiguation about the artist's intent influences the way a work of music or poetry is processed. Both musical and poetic paired with positive intent information were perceived as happier, while excerpts paired with negative intent information were perceived as sadder. Additionally, music seems to be correlated more with happiness and positive descriptions, while poetry seems to be correlated with sadness and negative descriptions. This is supported in that positive intent information increased enjoyment and moving ratings for music, while negative intent information increased the same ratings for poetry. Also, positive intent information was judged to match musical excerpts best while negative intent information was judged to match poetry best. Additionally, people seem to prefer disambiguation to having the ambiguity left intact provided that the description matches the type of piece (poetry with negative intent and music with positive intent), judging from the enjoyment and movingness ratings. Interestingly,, ambiguity is preferred to descriptions that don't match the type of piece (music with negative descriptions and poetry with positive descriptions). Overall, it seems as though expressive disambiguation of the artist's intent affects aesthetic appreciation similarly for musical and poetic excerpts for happiness and sadness, which suggesst "that empathy with a perceived human artist is indeed an important shared factor across experiences of music and poetry" (Margulis et al., 2017)
+
+References
+
+Margulis, E. H., Levine, W. H., Simchy-Gross, R., & Kroger, C. (2017). Expressive intent,  ambiguity, and aesthetic experiences of music and poetry. PLoS One, 12(7), e0179145. https://doi.org/10.1371/journal.pone.0179145
